@@ -1,10 +1,16 @@
 llamaindex示例地址：https://developers.llamaindex.ai/python/framework/understanding/agent/
+
 一个强大的MCP社区的分享：https://smithery.ai/server/@JackKuo666/semanticscholar-mcp-server
+
 llamahub:https://llamahub.ai
-graphrag的示例（使用那neo4j作为库）：
+
+graphrag的示例（使用那neo4j作为库）：https://developers.llamaindex.ai/python/examples/cookbooks/graphrag_v2
+
 neo4j网站（官方提供一个免费试用库）：https://neo4j.com/
 
+
 ===================================================
+
 1.如果前端不会使用的同学，在后端开启成功后，使用以下命令进行：测试观察：
 
 ```

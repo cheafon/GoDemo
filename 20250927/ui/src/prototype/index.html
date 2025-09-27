@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论文辅助阅读系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入Chart.js库用于图表展示 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入D3.js库用于知识图谱展示 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Paper Gift</h1>
+        </header>
+        
+        <!-- 问答区域 - 宽度拉满 -->
+        <section class="chat-section">
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message system">
+                        欢迎使用论文辅助阅读系统，您可以询问任何有关论文的问题。
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <textarea id="userInput" placeholder="请输入您的问题..."></textarea>
+                    <button id="sendButton">发送</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 数据可视化区域 - 初始隐藏 -->
+        <section class="visualization-section" id="visualizationSection">
+            <!-- 左侧图表区域 -->
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>领域论文数</h3>
+                    <canvas id="domainChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>火热作者排名</h3>
+                    <canvas id="authorChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>引用量分布</h3>
+                    <canvas id="citationChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>年度发表趋势</h3>
+                    <canvas id="yearlyTrendChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- 右侧知识图谱模块 -->
+            <div class="knowledge-graph-section">
+                <h2>论文知识图谱</h2>
+                <div class="knowledge-graph-container" id="knowledgeGraph">
+                    <!-- 知识图谱将通过D3.js动态生成 -->
+                </div>
+                <div class="knowledge-graph-info">
+                    <p>此知识图谱展示了论文之间的引用关系和主题连接。您可以拖动节点查看更多关系。</p>
+                    <div class="graph-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #4285F4;"></span>
+                            <span>论文</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #EA4335;"></span>
+                            <span>作者</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #FBBC05;"></span>
+                            <span>主题</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #34A853;"></span>
+                            <span>机构</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 论文生成结果模态框 -->
+    <div class="modal" id="paperModal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h2>论文生成成功</h2>
+            <p>您的论文已经生成完成，请点击下方链接查看：</p>
+            <a href="paper-template.html" target="_blank" class="paper-link" id="paperLink">查看生成的论文</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
